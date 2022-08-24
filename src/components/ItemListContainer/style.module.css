@@ -1,8 +1,15 @@
 .item-list {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-
+	gap: 1rem;
 	width: 100%;
-	height: 500px;
+}
+
+.item-list .items {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 1rem;
 }
