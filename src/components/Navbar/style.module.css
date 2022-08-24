@@ -1,5 +1,6 @@
 .nav {
-	position: fixed;
+	position: sticky;
+	top: 0px;
 	width: 100%;
 	padding: 0.6rem 0rem;
 	background: #8815d0;
@@ -80,10 +81,6 @@
 }
 
 @media screen and (max-width: 860px) {
-	.nav {
-		padding: 0.2rem 0.6rem;
-	}
-
 	.nav ul div.menu-bars {
 		display: block;
 		margin-inline: 1rem;
@@ -117,7 +114,7 @@
 
 @media screen and (max-width: 446px) {
 	.nav ul {
-		margin: 0;
+		padding: 0.3rem;
 	}
 	.nav ul div.links {
 		top: calc(46px + 0.5rem + 40px);
