@@ -7,7 +7,7 @@ function App() {
 		<div className='App'>
 			<Navbar></Navbar>
 			<CartWidget />
-			<ItemListContainer />
+			<ItemListContainer greeting='Tutor' />
 		</div>
 	)
 }
