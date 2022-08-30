@@ -1,14 +1,13 @@
 import { CartWidget } from './components/CartWidget'
-import { Navbar } from './components/Navbar'
 import { ItemListContainer } from './components/ItemListContainer'
-
+import { NewNavbar } from './components/NewNavbar'
 function App() {
 	return (
 		<div className='App'>
-			<Navbar></Navbar>
+			<NewNavbar />
 			<main>
+				<ItemListContainer />
 				<CartWidget />
-				<ItemListContainer greeting='Tutor' />
 			</main>
 		</div>
 	)
