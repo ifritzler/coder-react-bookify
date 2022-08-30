@@ -10,7 +10,9 @@ const Navbar = () => {
     <div className={styles.navbar}>
       <div className={styles.container}>
         {/* Logo */}
-        <span className={styles.logo}>Bookify</span>
+        <a className={styles.logo} href='#'>
+          Bookify
+        </a>
 
         {/* Toggle menu icon */}
         <span className={styles.menu} onClick={() => setIsActive(!isActive)}>
