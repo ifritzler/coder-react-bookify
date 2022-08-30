@@ -1,6 +1,6 @@
-import { CartWidget } from '../CartWidget'
-import { Navbar } from '../Navbar'
-import ItemListContainer from '../ItemListContainer/ItemListContainer'
+import { CartWidget } from './components/CartWidget'
+import { Navbar } from './components/Navbar'
+import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 
 function App() {
 	return (
