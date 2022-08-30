@@ -50,3 +50,34 @@ nav {
 	width: 100%;
 	text-align: center;
 }
+
+@media screen and (min-width: 900px) {
+	.menu {
+		display: none;
+	}
+	nav {
+		position: static;
+	}
+	.logo {
+		line-height: 1;
+	}
+	.links {
+		display: flex;
+		justify-content: flex-end;
+		overflow-y: initial;
+		height: auto;
+		font-size: 0.8em;
+	}
+	.link {
+		margin-right: 2em;
+		padding: 0;
+		display: flex;
+		place-content: center;
+		padding: 0.5rem 0;
+		transition: all 0.2s ease;
+	}
+	.link:hover {
+		background-color: white;
+		color: #8815d0;
+	}
+}
