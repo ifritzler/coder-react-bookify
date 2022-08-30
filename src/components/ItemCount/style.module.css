@@ -3,20 +3,12 @@
 	flex-direction: column;
 	text-align: center;
 	width: 300px;
-	height: 400px;
 	border: 1px solid rgba(0, 0, 0, 0.3);
 	border-radius: 8px;
 	overflow: hidden;
 	background-color: #f2f2f2;
 	transition: all 0.2s ease-in-out;
 	box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.card p {
-	flex-grow: 1;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 }
 
 .card:hover {
@@ -48,4 +40,25 @@
 .card .controls .action.disabled {
 	background-color: gray;
 	color: black;
+}
+
+.add-to-cart-btn {
+	font-size: 1em;
+	padding: 1em 1.3em;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	cursor: pointer;
+	background-color: #5d1d99;
+	color: white;
+	font-weight: bold;
+	font-family: sans-serif;
+	user-select: none;
+}
+
+.add-to-cart-btn:hover {
+	background-color: white;
+	color: #5d1d99;
+	-webkit-box-shadow: inset 0px 0px 0px 3px #5d1d99;
+	-moz-box-shadow: inset 0px 0px 0px 3px #5d1d99;
+	box-shadow: inset 0px 0px 0px 3px #5d1d99;
 }
