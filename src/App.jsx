@@ -1,10 +1,10 @@
 import { CartWidget } from './components/CartWidget'
 import { ItemListContainer } from './components/ItemListContainer'
-import { NewNavbar } from './components/NewNavbar'
+import { Navbar } from './components/Navbar'
 function App() {
 	return (
 		<div className='App'>
-			<NewNavbar />
+			<Navbar />
 			<main>
 				<ItemListContainer />
 				<CartWidget />
