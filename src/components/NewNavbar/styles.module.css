@@ -1,0 +1,52 @@
+nav {
+	position: absolute;
+	background-color: #8815d0;
+	width: 100%;
+	top: 100%;
+	left: 0;
+}
+.navbar {
+	background-color: #8815d0;
+	color: white;
+	font-family: 'Lora', sans-serif;
+	font-size: 2em;
+	z-index: 999;
+	position: sticky;
+	top: 0;
+}
+
+.container {
+	padding: 0.3em 0.5em;
+	width: 90%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo {
+	font-weight: bold;
+	line-height: 1.4;
+}
+
+.menu {
+	margin-left: auto;
+	margin-right: 0.2em;
+}
+
+.links {
+	overflow-y: hidden;
+	height: 0px;
+}
+
+.active {
+	height: auto;
+}
+
+.link {
+	display: inline-block;
+	padding: 1.5rem 0;
+	font-size: 0.7em;
+	width: 100%;
+	text-align: center;
+}
