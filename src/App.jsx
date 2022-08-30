@@ -1,17 +1,16 @@
 import { CartWidget } from './components/CartWidget'
-import { Navbar } from './components/Navbar'
 import { ItemListContainer } from './components/ItemListContainer'
-
+import { Navbar } from './components/Navbar'
 function App() {
-	return (
-		<div className='App'>
-			<Navbar></Navbar>
-			<main>
-				<CartWidget />
-				<ItemListContainer greeting='Tutor' />
-			</main>
-		</div>
-	)
+  return (
+    <div className='App'>
+      <Navbar />
+      <main>
+        <ItemListContainer />
+        <CartWidget />
+      </main>
+    </div>
+  )
 }
 
 export default App
