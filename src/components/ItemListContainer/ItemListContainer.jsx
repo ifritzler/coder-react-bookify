@@ -1,5 +1,3 @@
-import { useState } from 'react'
-import { useEffect } from 'react'
 import { Item } from '../Item'
 import styles from './style.module.css'
 
