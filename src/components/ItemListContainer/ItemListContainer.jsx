@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Item } from '../Item'
+import { Loader } from '../Loader'
 import styles from './style.module.css'
 
 const ItemListContainer = () => {
@@ -39,7 +40,7 @@ const ItemListContainer = () => {
     <section className={styles['item-list']}>
       <div className={styles.container}>
         {/* Renderizado condicional de un loading */}
-        {loading && <p className={styles.loading}>Cargando</p>}
+        {loading && <Loader></Loader>}
         <div className={styles.items}>
           {items ? (
             items.map((item) => {

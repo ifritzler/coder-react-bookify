@@ -9,25 +9,6 @@
   gap: 1.5em;
 }
 
-@keyframes loading {
-  0% {
-    content: '.';
-  }
-  50% {
-    content: '..';
-  }
-  100% {
-    content: '...';
-  }
-}
-
-.loading::after {
-  content: '';
-  animation-name: loading;
-  animation-duration: 1.3s;
-  animation-iteration-count: infinite;
-}
-
 @media screen and (min-width: 768px) {
   .container .items {
     flex-direction: row;
