@@ -14,6 +14,7 @@ const Item = (props) => {
     stock = 0,
     bestSeller = false,
   } = props.data
+
   return (
     <>
       <div className={styles.container}>

@@ -8,13 +8,6 @@ const ItemListContainer = () => {
   // TODO Este componente debe tener un titulo que indique la o las categorias que este mostrando.
   const [items, setItems] = useState([])
 
-  const onAdd = (count) => {
-    alert(`Se agregaron ${count} productos al carrito`)
-  }
-  const addFail = () => {
-    alert('Fallo la carga del producto en el carrito')
-  }
-
   useEffect(() => {
     const getData = async () => {
       try {
@@ -25,6 +18,7 @@ const ItemListContainer = () => {
     }
     getData()
   }, [])
+
   return (
     <section className={styles['item-list']}>
       <div className={styles.container}>
