@@ -7,19 +7,28 @@ const ItemListContainer = () => {
   const [items, setItems] = useState([])
   const [loading, setLoading] = useState(true)
 
+  const API_KEY = `$2b$10$${import.meta.env.VITE_API_KEY}`
+
   useEffect(() => {
     const getData = async () => {
       try {
         setLoading(true)
-        const response = await fetch('src/data/books.json')
+        const response = await fetch('https://api.jsonbin.io/v3/b/630e6d17a1610e638615ea97', {
+          headers: {
+            'X-Master-Key': API_KEY,
+          },
+        })
         const data = await response.json()
+
+        // Aqui se resuelve el ejercicio de la promise con delay de 2 segundos
         return new Promise((resolve, reject) => {
           setTimeout(() => {
-            resolve(data)
+            resolve(data.record)
           }, 2000)
         })
       } catch {}
     }
+
     getData().then((data) => {
       setLoading(false)
       setItems(data)
@@ -32,9 +41,14 @@ const ItemListContainer = () => {
         {/* Renderizado condicional de un loading */}
         {loading && <p className={styles.loading}>Cargando</p>}
         <div className={styles.items}>
-          {items.map((item) => {
-            return <Item key={item.id} data={item} />
-          })}
+          {items ? (
+            items.map((item) => {
+              return <Item key={item.id} data={item} />
+            })
+          ) : (
+            // Mensaje que se mostrara en caso de que falle el fetch por esta mal puesta la api_key
+            <p>Error al cargar los datos. Falta la API_KEY en el enviroment</p>
+          )}
         </div>
       </div>
     </section>
