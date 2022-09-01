@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Item } from '../Item'
 import ItemList from '../ItemList/ItemList'
 import { Loader } from '../Loader'
 import styles from './style.module.css'
