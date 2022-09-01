@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Item } from '../Item'
+import ItemList from '../ItemList/ItemList'
 import { Loader } from '../Loader'
 import styles from './style.module.css'
 
@@ -42,14 +43,7 @@ const ItemListContainer = () => {
         {/* Renderizado condicional de un loading */}
         {loading && <Loader></Loader>}
         <div className={styles.items}>
-          {items ? (
-            items.map((item) => {
-              return <Item key={item.id} data={item} />
-            })
-          ) : (
-            // Mensaje que se mostrara en caso de que falle el fetch por esta mal puesta la api_key
-            <p>Error al cargar los datos. Falta la API_KEY en el enviroment</p>
-          )}
+          <ItemList items={items} />
         </div>
       </div>
     </section>
