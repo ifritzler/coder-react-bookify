@@ -1,8 +1,10 @@
 import styles from './styles.module.css'
 import { CardButton } from '../CardButton'
+import { Link } from 'react-router-dom'
 
 const Item = (props) => {
   const {
+    id,
     images = {
       small: '',
       medium: '',
@@ -27,14 +29,14 @@ const Item = (props) => {
             </div>
             <h2 className={styles.title}>{title}</h2>
             <p className={styles.description}>{tinyDescription}</p>
-            <a href='#' className={styles['view-more']}>
+            <Link to={`/products/detail/${id}`} className={styles['view-more']}>
               <CardButton text='Ver más...' />
-            </a>
+            </Link>
 
             {/* TODO Hacer que el boton agregue un solo item al carrito. Aun no funcional */}
-            <a href='#' className={styles['view-more']}>
+            <div href={`/products/detail/${id}`} className={styles['view-more']}>
               <CardButton text='Añadir a la carrito' />
-            </a>
+            </div>
           </div>
         </div>
       </div>
