@@ -13,7 +13,7 @@ function App() {
           <Route path='/products' element={<Products />} />
           <Route path='/products/category/:id' element={<Products />} />
           <Route path='/products/detail/:id' element={<Products />} />
-          {/* <Route path='*' element={<div>Aun no hay nada por aqui!</div>} /> */}
+          <Route path='*' element={<div>Aun no hay nada por aqui!</div>} />
         </Routes>
         <CartWidget />
       </main>
