@@ -1,11 +1,16 @@
 @import '../node_modules/reset-css/reset.css';
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap');
 
 :root {
   font-family: 'Lora', Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
   line-height: 24px;
   font-weight: 400;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 a {
@@ -23,4 +28,20 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Lora', sans-serif;
+}
+
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.5em;
 }

@@ -2,6 +2,7 @@ import styles from './styles.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   const [isActive, setIsActive] = useState(false)
@@ -10,9 +11,9 @@ const Navbar = () => {
     <div className={styles.navbar}>
       <div className={styles.container}>
         {/* Logo */}
-        <a className={styles.logo} href='#'>
+        <Link className={styles.logo} to='/'>
           Bookify
-        </a>
+        </Link>
 
         {/* Toggle menu icon */}
         <span className={styles.menu} onClick={() => setIsActive(!isActive)}>
@@ -23,59 +24,70 @@ const Navbar = () => {
         <nav>
           <ul className={`${styles.links} ${isActive ? styles.active : ''}`}>
             <li>
-              <a
-                href='#'
+              <Link
+                to='/products'
+                className={styles.link}
+                onClick={() => {
+                  setIsActive(false)
+                }}
+              >
+                Explorar
+              </Link>
+            </li>
+            <li>
+              <Link
+                to='/products?bestseller=true'
                 className={styles.link}
                 onClick={() => {
                   setIsActive(false)
                 }}
               >
                 BestSellers
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href='#'
+              <Link
+                to='/products/category/novela'
                 className={styles.link}
                 onClick={() => {
                   setIsActive(false)
                 }}
               >
                 Novelas
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href='#'
+              <Link
+                to='/products/category/fantasia'
                 className={styles.link}
                 onClick={() => {
                   setIsActive(false)
                 }}
               >
                 Fantasia
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href='#'
+              <Link
+                to='/products/category/ciencia-ficcion'
                 className={styles.link}
                 onClick={() => {
                   setIsActive(false)
                 }}
               >
                 Ciencia ficcion
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href='#'
+              <Link
+                to='/products/category/manga'
                 className={styles.link}
                 onClick={() => {
                   setIsActive(false)
                 }}
               >
                 Manga
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>

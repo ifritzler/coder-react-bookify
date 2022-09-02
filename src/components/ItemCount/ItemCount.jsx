@@ -1,43 +1,42 @@
 import { useState } from 'react'
-import styles from './style.module.css'
+import styles from './styles.module.css'
 
-const ItemCount = ({ stock, initial, onAdd, addFail }) => {
-  const [count, setCount] = useState(initial ?? 1)
+const ItemCount = (props) => {
+  const { id, stock } = props
 
-  const plus = () => {
-    if (count === stock) return
-    setCount(count + 1)
+  const [items, setItems] = useState(1)
+
+  const onAdd = () => {
+    if (items === stock) return
+    setItems(items + 1)
   }
 
-  const minus = () => {
-    if (count === 1) return
-    setCount(count - 1)
-  }
-
-  const addToCard = () => {
-    if (count > stock) return
-    onAdd(count)
-    setCount(initial)
+  const onDecrement = () => {
+    if (items === 1) return
+    setItems(items - 1)
   }
 
   return (
-    <div className={styles.card}>
-      <div className={styles.controls}>
-        <span className={`${styles.action} ${count === 1 ? styles.disabled : ''}`} onClick={minus}>
-          -
-        </span>
-        <span>{count}</span>
-        <span
-          className={`${styles.action} ${count === stock ? styles.disabled : ''}`}
-          onClick={plus}
-        >
-          +
-        </span>
+    <>
+      <div className={styles['item-count-container']}>
+        <span>Cantidad: {items}</span>
+        <span className={styles.whispered}>{`(En existencias: ${stock})`}</span>
+        <div className={styles.controls}>
+          <div className={styles.control} onClick={onDecrement}>
+            -
+          </div>
+          <div className={styles.control} onClick={onAdd}>
+            +
+          </div>
+        </div>
       </div>
-      <div className={styles['add-to-cart-btn']} onClick={addToCard}>
+      <div
+        className={styles['add-cart']}
+        onClick={() => alert(`Producto con id ${id} agregado con exito`)}
+      >
         Agregar al carrito
       </div>
-    </div>
+    </>
   )
 }
 
