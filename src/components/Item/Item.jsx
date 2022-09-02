@@ -19,7 +19,7 @@ const Item = (props) => {
     <>
       <div className={styles.container}>
         <div className={`${styles.book} ${bestSeller ? styles.best : ''}`}>
-          <img src={images.large} alt={title} />
+          <img src={`${window.origin}/${images.large}`} alt={title} />
           <div className={styles.info}>
             <div className={styles.infoHeader}>
               <span className={styles.stock}>{`${stock} unid. disponibles`}</span>

@@ -26,7 +26,6 @@ nav {
 
 .logo {
   font-weight: bold;
-  line-height: 1.4;
 }
 
 .menu {
@@ -74,7 +73,7 @@ nav {
     display: flex;
     place-content: center;
     padding: 0.5rem 0;
-    transition: all 0.2s ease;
+    /* transition: all 0.2s ease; */
   }
   .link:hover {
     background-color: white;
