@@ -1,0 +1,17 @@
+.button-primary {
+  background-color: #A216C5;
+  color: white;
+  display: inline-block;
+  padding: 1rem;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  font-weight: bold;
+  transition: all .3s ease-out;
+}
+
+.button-primary:hover {
+  background-color: white;
+  color: #A216C5;
+  box-shadow:inset 0px 0px 0px 3px #A216C5;
+}
