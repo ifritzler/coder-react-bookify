@@ -12,6 +12,7 @@ import PrivateRoutes from './views/PrivateRoutes'
 import PublicRoutes from './views/PublicRoutes'
 import Detail from './views/Detail/Detail'
 import CartProvider from './context/cartContext'
+import Cart from './components/Cart/Cart'
 
 function App() {
   return (
@@ -25,11 +26,11 @@ function App() {
             <Route path={EXPLORE} element={<Explore />} />
             <Route path={EXPLORE_CATEGORY} element={<Explore />} />
             <Route path={DETAIL} element={<Detail />} />
+            <Route path={CART} element={<Cart />} />
           </Route>
 
           <Route path={PRIVATE} element={<PrivateRoutes />}>
             <Route path={PRIVATE} index element={<Private />} />
-            <Route path={CART} element={<div>Cart</div>} />
           </Route>
           <Route path='*' element={<NotFound />} />
         </Routes>

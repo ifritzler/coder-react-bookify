@@ -22,15 +22,19 @@
     cursor: pointer
   .counter-value
     background-color: #333333
-.button
-  background-color: #8b139b
-  color: white
-  padding: .6rem 1rem
-  display: inline-block
-  text-align: center
-  cursor: pointer
-  width: 400px
-.button.deactivate
-  background-color: #797979
-  color: rgba(255, 255, 255, .3)
-  cursor: auto
+.buttons-group
+  display: flex
+  justify-content: center
+  flex-wrap: wrap
+  .button
+    background-color: #8b139b
+    color: white
+    padding: .6rem 1rem
+    display: inline-block
+    text-align: center
+    cursor: pointer
+    width: min(90%, 300px)
+  .button.deactivate
+    background-color: #797979
+    color: rgba(255, 255, 255, .3)
+    cursor: auto
