@@ -7,14 +7,12 @@ import { Link } from 'react-router-dom'
 import { useCartContext } from '../../context/cartContext'
 
 function Cart() {
-  const { removeItem, cart, setCart } = useCartContext()
+  const { removeItem, cart, setCart, countItems } = useCartContext()
   const [totals, setTotals] = useState({ itemCount: 0, subTotal: 0 })
 
-  function calculateTotals(products) {
+  function calculateTotals() {
     setTotals({
-      itemCount: cart.reduce((prev, prod) => {
-        return prev + parseInt(prod.quantity)
-      }, 0),
+      itemCount: countItems(),
       subTotal: cart.reduce((prev, prod) => {
         return parseInt(prev + prod.price * parseInt(prod.quantity))
       }, 0),
@@ -25,15 +23,16 @@ function Cart() {
     try {
       const newQuantity = event.target.value
       let cartCopy = [...cart]
-      console.log(totals)
+
       cartCopy = cartCopy.map((product) => {
         if (product.id === id && newQuantity <= product.stock) {
           return { ...product, quantity: newQuantity }
         }
         return product
       })
+
       /// ---------------------------------------
-      calculateTotals(cartCopy)
+      calculateTotals()
       /// ---------------------------------------
       setCart(cartCopy)
     } catch (error) {
@@ -46,7 +45,7 @@ function Cart() {
   }
 
   useEffect(() => {
-    calculateTotals(cart)
+    calculateTotals()
   }, [cart])
 
   return (

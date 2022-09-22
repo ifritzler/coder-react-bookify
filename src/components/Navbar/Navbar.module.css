@@ -1,0 +1,16 @@
+.count-container {
+  position: relative;
+}
+.count {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  padding-block: 0.05rem;
+  padding-inline: 0.3rem;
+  border-radius: 30%;
+  font-size: 10px;
+  font-weight: bold;
+}

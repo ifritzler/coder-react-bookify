@@ -10,6 +10,12 @@ const CartProvider = ({ children }) => {
     return cart.find((prod) => prod.id === id) ? true : false
   }
 
+  const countItems = () => {
+    return cart.reduce((prev, prod) => {
+      return prev + parseInt(prod.quantity)
+    }, 0)
+  }
+
   const addItem = (product, quantity) => {
     const adding = { ...product, quantity }
     const newCart = [...cart]
@@ -23,7 +29,6 @@ const CartProvider = ({ children }) => {
         }
       })
     }
-    console.log(newCart)
     setCart(newCart)
   }
 
@@ -36,7 +41,9 @@ const CartProvider = ({ children }) => {
   }
 
   return (
-    <cartContext.Provider value={{ cart, addItem, removeItem, clear, isInCart, setCart }}>
+    <cartContext.Provider
+      value={{ cart, addItem, removeItem, clear, isInCart, setCart, countItems }}
+    >
       {children}
     </cartContext.Provider>
   )
