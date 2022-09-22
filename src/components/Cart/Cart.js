@@ -26,21 +26,34 @@ const PRODUCTS = [
 ]
 
 function Cart() {
-  const { removeItem, cart, addItem } = useCartContext()
-  const [products, setProducts] = useState([])
+  const { removeItem, cart, setCart } = useCartContext()
   const [totals, setTotals] = useState({ itemCount: 0, subTotal: 0 })
 
-  const onChangeProductQuantity = (index, event) => {
-    const value = event.target.value
-    const valueInt = parseInt(value)
-    const cloneProducts = [...cart]
-
-    if (value === '') {
-      cloneProducts[index].quantity = value
-    } else if (valueInt > 0 && valueInt < 100) {
-      cloneProducts[index].quantity = valueInt
+  const onChangeProductQuantity = (id, event) => {
+    try {
+      const newQuantity = event.target.value
+      let cartCopy = [...cart]
+      console.log(totals)
+      cartCopy = cartCopy.map((product) => {
+        if (product.id === id && newQuantity <= product.stock) {
+          return { ...product, quantity: newQuantity }
+        }
+        return product
+      })
+      /// ---------------------------------------
+      setTotals({
+        itemCount: cartCopy.reduce((prev, prod) => {
+          return prev + parseInt(prod.quantity)
+        }, 0),
+        subTotal: cartCopy.reduce((prev, prod) => {
+          return parseInt(prev + prod.price * parseInt(prod.quantity))
+        }, 0),
+      })
+      /// ---------------------------------------
+      setCart(cartCopy)
+    } catch (error) {
+      console.log(error)
     }
-    setProducts(cloneProducts)
   }
 
   const onRemoveProduct = (id) => {
@@ -48,35 +61,24 @@ function Cart() {
   }
 
   useEffect(() => {
-    const CLONE_PRODUCTS = JSON.parse(JSON.stringify(cart))
-    setProducts(CLONE_PRODUCTS)
-    if (products.length > 0) {
-      setTotals({
-        ...totals,
-        itemCount: cart.reduce((quantity, product) => {
-          return quantity + product.quantity
-        }, 0),
-      })
-    }
-
-    if (products.length > 0) {
-      setTotals({
-        ...totals,
-        subTotal: cart.reduce((total, product) => {
-          return total + product.price * product.quantity
-        }, 0),
-      })
-    }
+    setTotals({
+      itemCount: cart.reduce((prev, prod) => {
+        return prev + parseInt(prod.quantity)
+      }, 0),
+      subTotal: cart.reduce((prev, prod) => {
+        return parseInt(prev + prod.price * parseInt(prod.quantity))
+      }, 0),
+    })
   }, [cart])
 
   return (
     <div>
       <Header itemCount={totals.itemCount} />
 
-      {products.length > 0 ? (
+      {cart.length > 0 ? (
         <div>
           <CartList
-            products={products}
+            products={cart}
             onChangeProductQuantity={onChangeProductQuantity}
             onRemoveProduct={onRemoveProduct}
           />

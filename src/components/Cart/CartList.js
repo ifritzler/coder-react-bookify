@@ -32,7 +32,7 @@ function CartList({ products, onChangeProductQuantity, onRemoveProduct }) {
                     className='quantity'
                     step='1'
                     value={product.quantity}
-                    onChange={(event) => onChangeProductQuantity(index, event)}
+                    onChange={(event) => onChangeProductQuantity(product.id, event)}
                   />
                 </div>
 
