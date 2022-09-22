@@ -14,7 +14,7 @@ const Navbar = () => {
     <div className='z-50 sticky top-0 bg-primary text-white font-lora py-2.5 px-6 relative flex justify-center'>
       {/* Container */}
       <div className='w-full h-full max-w-7xl flex items-center justify-between'>
-        <span className='font-semibold text-2xl'>
+        <span className='font-semibold sm:text-xl md:text-2xl'>
           <Link to='/' onClick={() => setOpen(false)}>
             Bookify
           </Link>
