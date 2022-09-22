@@ -6,28 +6,20 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../../context/cartContext'
 
-const PRODUCTS = [
-  {
-    image: window.location.origin + '/books/small/harry-potter-y-la-piedra-filosofal.jpg',
-    name: 'Harry Potter y la piedra filosofal',
-    description:
-      'Harry Potter se ha quedado huérfano y vive en casa de sus abominables tíos y del insoportable primo Dudley.',
-    price: 2999.99,
-    quantity: 2,
-  },
-  {
-    image: window.location.origin + '/books/small/patria-aramburu.jpg',
-    name: 'Patria',
-    description:
-      'El día en que ETA anuncia el abandono de las armas, Bittori se dirige al cementerio para contarle a la tumba de su marido el Txato, asesinado por los terroristas, que ha decidido volver a la casa donde vivieron.',
-    price: 3449.99,
-    quantity: 1,
-  },
-]
-
 function Cart() {
   const { removeItem, cart, setCart } = useCartContext()
   const [totals, setTotals] = useState({ itemCount: 0, subTotal: 0 })
+
+  function calculateTotals(products) {
+    setTotals({
+      itemCount: cart.reduce((prev, prod) => {
+        return prev + parseInt(prod.quantity)
+      }, 0),
+      subTotal: cart.reduce((prev, prod) => {
+        return parseInt(prev + prod.price * parseInt(prod.quantity))
+      }, 0),
+    })
+  }
 
   const onChangeProductQuantity = (id, event) => {
     try {
@@ -41,14 +33,7 @@ function Cart() {
         return product
       })
       /// ---------------------------------------
-      setTotals({
-        itemCount: cartCopy.reduce((prev, prod) => {
-          return prev + parseInt(prod.quantity)
-        }, 0),
-        subTotal: cartCopy.reduce((prev, prod) => {
-          return parseInt(prev + prod.price * parseInt(prod.quantity))
-        }, 0),
-      })
+      calculateTotals(cartCopy)
       /// ---------------------------------------
       setCart(cartCopy)
     } catch (error) {
@@ -61,14 +46,7 @@ function Cart() {
   }
 
   useEffect(() => {
-    setTotals({
-      itemCount: cart.reduce((prev, prod) => {
-        return prev + parseInt(prod.quantity)
-      }, 0),
-      subTotal: cart.reduce((prev, prod) => {
-        return parseInt(prev + prod.price * parseInt(prod.quantity))
-      }, 0),
-    })
+    calculateTotals(cart)
   }, [cart])
 
   return (
