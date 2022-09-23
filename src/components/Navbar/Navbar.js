@@ -2,6 +2,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../../context/cartContext'
+import Avatar from '../Avatar/Avatar'
 import styles from './Navbar.module.css'
 
 const Navbar = () => {
@@ -87,14 +88,7 @@ const Navbar = () => {
 
           <div className='w-8 h-8 flex items-center justify-center '>
             {isAuthenticated ? (
-              <Link to='/private'>
-                <img
-                  className='rounded-full border-2 border-white'
-                  src={user.picture}
-                  alt=''
-                  referrerPolicy='no-referrer'
-                />
-              </Link>
+              <Avatar picture={user.picture}></Avatar>
             ) : (
               <Link to='/login'>
                 <>

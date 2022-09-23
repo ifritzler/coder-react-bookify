@@ -3,7 +3,7 @@ function Header({ itemCount }) {
     <header className='container'>
       <h1 className='title'>Carrito de compra</h1>
 
-      <span className='count'>{itemCount} items in the bag</span>
+      <span className='count'>{itemCount} items en el carrito</span>
     </header>
   )
 }
