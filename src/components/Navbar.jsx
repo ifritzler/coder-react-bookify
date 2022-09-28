@@ -32,13 +32,15 @@ const Header = styled.header`
   .container {
     min-height: 60px;
     gap: 3vw;
+    > a {
+      display: grid;
+      place-content: center;
+      font-weight: bold;
+    }
   }
 `
 const Logo = styled.span`
   font-size: min(calc(1.3rem + 0.3vw), 2rem);
-  display: grid;
-  place-content: center;
-  font-weight: bold;
 `
 const Navigation = styled.nav`
   display: grid;

@@ -17,19 +17,17 @@ const CartProvider = ({ children }) => {
   }
 
   const addItem = (product, quantity) => {
-    const adding = { ...product, quantity }
-    const newCart = [...cart]
-
     if (!isInCart(product.id)) {
-      newCart.push(adding)
-    } else {
-      newCart.forEach((prod) => {
-        if (prod.id === adding.id) {
-          prod.quantity += quantity
-        }
-      })
+      return newCart.push({ ...product, quantity })
     }
-    setCart(newCart)
+
+    const copy = [...cart]
+    copy.forEach((prod) => {
+      if (prod.id === adding.id) {
+        prod.quantity += quantity
+      }
+    })
+    setCart(copy)
   }
 
   const removeItem = (id) => {
