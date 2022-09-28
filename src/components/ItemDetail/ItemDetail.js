@@ -14,10 +14,7 @@ const ItemDetail = ({ book }) => {
   return (
     <div className='detail-container'>
       <div className='detail-img'>
-        <img
-          src={window.location.origin + '/' + book.images?.large}
-          alt={'Portada de ' + book?.title}
-        />
+        <img src={book.images?.large} alt={'Portada de ' + book?.title} />
       </div>
       <div className='detail-right'>
         <div className='detail-info'>

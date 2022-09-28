@@ -10,10 +10,7 @@ function CartList({ products, onChangeProductQuantity, onRemoveProduct }) {
               <div className='col left'>
                 <div className='thumbnail'>
                   <a href='#'>
-                    <img
-                      src={window.location.origin + `/${product.images.small}`}
-                      alt={product.title}
-                    />
+                    <img src={`${product.images.small}`} alt={product.title} />
                   </a>
                 </div>
                 <div className='detail'>
