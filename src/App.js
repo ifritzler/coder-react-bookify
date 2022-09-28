@@ -1,13 +1,17 @@
 import { Route, Routes } from 'react-router-dom'
+import { ContainerColumn } from './components/Containers'
 import Navbar from './components/Navbar'
+import Home from './pages/Home'
 
 function App() {
   return (
     <>
       <Navbar />
-      <Routes>
-        <Route path='/' element={<p>Home</p>} />
-      </Routes>
+      <ContainerColumn>
+        <Routes>
+          <Route path='/' element={<Home />} />
+        </Routes>
+      </ContainerColumn>
     </>
   )
 }
