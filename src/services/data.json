@@ -1,6 +1,5 @@
 [
   {
-    "id": "1",
     "stock": 1500,
     "sold": 0,
     "title": "Harry Potter y la piedra filosofal",
@@ -18,7 +17,6 @@
     "bestSeller": true
   },
   {
-    "id": "2",
     "stock": 1500,
     "sold": 0,
     "title": "50 Sombras de Gray",
@@ -36,7 +34,6 @@
     "bestSeller": true
   },
   {
-    "id": "3",
     "stock": 1500,
     "sold": 0,
     "title": "Bajo la misma estrella",
@@ -54,7 +51,6 @@
     "bestSeller": true
   },
   {
-    "id": "4",
     "stock": 1500,
     "sold": 0,
     "title": "Divergente",
@@ -72,7 +68,6 @@
     "bestSeller": true
   },
   {
-    "id": "5",
     "stock": 1500,
     "sold": 0,
     "title": "Patria",
@@ -90,7 +85,6 @@
     "bestSeller": false
   },
   {
-    "id": "6",
     "stock": 1500,
     "sold": 0,
     "title": "Sinsajo",
@@ -108,7 +102,6 @@
     "bestSeller": true
   },
   {
-    "id": "7",
     "stock": 1500,
     "sold": 0,
     "title": "Inferno",
@@ -126,7 +119,6 @@
     "bestSeller": true
   },
   {
-    "id": "8",
     "stock": 1500,
     "sold": 0,
     "title": "El guardián invisble",
@@ -144,7 +136,6 @@
     "bestSeller": false
   },
   {
-    "id": "9",
     "stock": 1500,
     "sold": 0,
     "title": "La chica del tren",
@@ -162,7 +153,6 @@
     "bestSeller": false
   },
   {
-    "id": "10",
     "stock": 1500,
     "sold": 0,
     "title": "El prisionero del cielo",
@@ -180,7 +170,6 @@
     "bestSeller": false
   },
   {
-    "id": "11",
     "stock": 1500,
     "sold": 0,
     "title": "Yo antes de ti",
@@ -198,7 +187,6 @@
     "bestSeller": true
   },
   {
-    "id": "12",
     "stock": 1500,
     "sold": 0,
     "title": "Cementerio de animales",
