@@ -15,7 +15,7 @@ const ItemCount = ({ product, addProductToCart }) => {
 
   const handleAdd = (e) => {
     addProductToCart(product, count)
-    document.getElementById('cantidad').value = 1
+    setCount(1)
   }
 
   return (

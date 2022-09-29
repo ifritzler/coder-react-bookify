@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import ItemCount from './ItemCount'
+import { useCartContext } from '../context/cartContext'
 
 const formatter = new Intl.NumberFormat('es-AR', {
   style: 'currency',
@@ -7,8 +8,11 @@ const formatter = new Intl.NumberFormat('es-AR', {
 })
 
 const Product = ({ product }) => {
+  const { addItem } = useCartContext()
+
   function addProductToCart(product, quantity) {
     alert('Producto añadido')
+    addItem(product, quantity)
   }
 
   return (

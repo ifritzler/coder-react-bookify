@@ -1,10 +1,11 @@
 import { createContext, useContext, useState } from 'react'
+import useLocalStorage from '../hooks/useLocalStorage'
 
 const cartContext = createContext({})
 cartContext.displayName = 'Contexto Carrito'
 
 const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useLocalStorage('cart', [])
 
   const isInCart = (id) => {
     return cart.find((prod) => prod.id === id) ? true : false
@@ -17,14 +18,16 @@ const CartProvider = ({ children }) => {
   }
 
   const addItem = (product, quantity) => {
+    const copy = [...cart]
+
     if (!isInCart(product.id)) {
-      return newCart.push({ ...product, quantity })
+      copy.push({ ...product, quantity: parseInt(quantity) })
+      return setCart(copy)
     }
 
-    const copy = [...cart]
     copy.forEach((prod) => {
-      if (prod.id === adding.id) {
-        prod.quantity += quantity
+      if (prod.id === product.id) {
+        prod.quantity += parseInt(quantity)
       }
     })
     setCart(copy)
