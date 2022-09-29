@@ -8,8 +8,6 @@ const ContainerColumn = ({ children }) => {
   return <Container className='container column'>{children}</Container>
 }
 
-export { ContainerRow, ContainerColumn }
-
 const Container = styled.div`
   display: flex;
   flex-direction: row;
@@ -21,3 +19,5 @@ const Container = styled.div`
     flex-direction: column;
   }
 `
+
+export { Container, ContainerRow, ContainerColumn }

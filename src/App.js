@@ -13,6 +13,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/tienda' element={<Tienda />} />
           <Route path='/tienda/:category' element={<Tienda />} />
+          <Route path='/producto/:idProducto' element={<Tienda />} />
         </Routes>
       </ContainerColumn>
     </>
