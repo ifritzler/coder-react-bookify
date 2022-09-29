@@ -4,8 +4,8 @@ import { Container } from './Containers'
 
 const CardProduct = ({ product }) => {
   return (
-    <CardContainer>
-      <CardImageContainer>
+    <CardContainer price={product?.price}>
+      <CardImageContainer className={product?.bestSeller ? 'bestseller' : ''}>
         <img src={product?.images.large} alt={product?.tinyDescription} />
       </CardImageContainer>
       <CardInfoContainer>
@@ -29,11 +29,27 @@ const CardContainer = styled.div`
   padding: 0.5rem;
   background-color: white;
   transition: transform 0.2s ease-in;
+  position: relative;
+
+  ::before {
+    position: absolute;
+    z-index: 9;
+    content: '$${(props) => props.price}';
+    display: grid;
+    place-content: center;
+    padding: 0.3rem;
+    font-size: 14px;
+    font-weight: bold;
+    top: 55%;
+    right: 0px;
+    background-color: #ffb311;
+  }
 
   &:hover {
     transform: scale(1.1);
     z-index: 9;
   }
+
   @media screen and (min-width: 400px) {
     width: 40%;
     padding: 1rem;
@@ -49,6 +65,22 @@ const CardImageContainer = styled.div`
     height: 100%;
     width: 100%;
     object-fit: cover;
+  }
+  &.bestseller {
+    position: relative;
+    ::before {
+      position: absolute;
+      content: 'Bestseller';
+      display: grid;
+      place-content: center;
+      padding: 0.3rem 0.7rem;
+      font-size: 14px;
+      font-weight: bold;
+      top: 20px;
+      left: 0px;
+      min-width: 70px;
+      background-color: #ffb311;
+    }
   }
 `
 const CardInfoContainer = styled(Container)`

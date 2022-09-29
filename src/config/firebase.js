@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
-import { getDownloadURL, getStorage } from 'firebase/storage'
+// import { getDownloadURL, getStorage } from 'firebase/storage'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -16,10 +16,4 @@ const firebaseConfig = {
 // Initialize Firebase
 export const firebaseApp = initializeApp(firebaseConfig)
 export const db = getFirestore()
-export const firebaseStorage = getStorage(firebaseApp)
-
-// Utilities
-export const getImageUrlFromPath = async (path) => {
-  const reference = ref(firebaseStorage, path)
-  return getDownloadURL(reference)
-}
+// export const firebaseStorage = getStorage(firebaseApp)
