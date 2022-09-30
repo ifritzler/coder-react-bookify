@@ -37,6 +37,7 @@ async function getByCategory(category) {
   querySnapshot?.forEach((doc) => {
     data?.push({ id: doc.id, ...doc.data() })
   })
+  return data
 }
 
 async function getById(id) {

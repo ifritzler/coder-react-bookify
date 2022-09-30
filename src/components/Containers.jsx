@@ -1,23 +1,15 @@
 import styled from 'styled-components'
 
-const ContainerRow = ({ children }) => {
-  return <Container className='container'>{children}</Container>
-}
-
-const ContainerColumn = ({ children }) => {
-  return <Container className='container column'>{children}</Container>
-}
-
 const Container = styled.div`
   display: flex;
-  flex-direction: row;
   max-width: 1280px;
   padding: min(1rem, 3vw);
   flex-wrap: wrap;
   margin: 0 auto;
-  &.column {
-    flex-direction: column;
-  }
+`
+const ContainerRow = styled(Container)``
+const ContainerColumn = styled(Container)`
+  flex-direction: column;
 `
 
 export { Container, ContainerRow, ContainerColumn }

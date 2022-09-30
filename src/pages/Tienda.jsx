@@ -234,12 +234,11 @@ const Tienda = () => {
     if (!category) {
       return getAll().then(setProducts)
     }
-    getByCategory(category)
+    getByCategory(category).then(setProducts)
   }
 
   useEffect(() => {
-    // handleSetProducts() Descomentar para traer los datos de firebase
-    setProducts(mockProducts)
+    handleSetProducts()
   }, [category])
 
   return (
