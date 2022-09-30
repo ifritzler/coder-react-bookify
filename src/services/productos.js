@@ -1,4 +1,4 @@
-import { collection, getDoc, getDocs, query, where } from 'firebase/firestore'
+import { collection, getDoc, getDocs, query, where, doc } from 'firebase/firestore'
 import { db } from '../config/firebase'
 
 // import {writeBatch, doc} from 'firebase/firestore'
@@ -42,11 +42,8 @@ async function getByCategory(category) {
 
 async function getById(id) {
   // Create a query against the collection.
-  const querySnapshot = await getDoc(id)
-  const data = []
-  querySnapshot?.forEach((doc) => {
-    data?.push({ id: doc.id, ...doc.data() })
-  })
+  const querySnapshot = await getDoc(doc(db, 'books', id))
+  return querySnapshot.data()
 }
 
-export { getAll, getByCategory }
+export { getAll, getByCategory, getById }

@@ -6,7 +6,10 @@ const CardProduct = ({ product }) => {
   return (
     <CardContainer price={product?.price}>
       <CardImageContainer className={product?.bestSeller ? 'bestseller' : ''}>
-        <img src={product?.images.large} alt={product?.tinyDescription} />
+        <img
+          src={`${window.location.origin}/${product?.images.large}`}
+          alt={product?.tinyDescription}
+        />
       </CardImageContainer>
       <CardInfoContainer>
         <CardTitle>{product.title}</CardTitle>

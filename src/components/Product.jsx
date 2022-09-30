@@ -18,7 +18,10 @@ const Product = ({ product }) => {
   return (
     <ProductContainer>
       <ProductImageContainer id='image-area'>
-        <img src={product?.images?.large} alt={product?.tinyDescription} />
+        <img
+          src={`${window.location.origin}/${product?.images?.large}`}
+          alt={product?.tinyDescription}
+        />
       </ProductImageContainer>
       <div id='info-area'>
         <ProductInfo id='info-area' style={{ gridArea: 'info-area' }}>
