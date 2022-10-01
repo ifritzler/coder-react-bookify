@@ -15,7 +15,7 @@ const CardProduct = ({ product }) => {
         <CardTitle>{product.title}</CardTitle>
         <CardDescription>{`${product?.tinyDescription.slice(0, 60)}...`}</CardDescription>
         <CardButton>
-          <Link to={`/producto/${product.id}`}>Ver mas</Link>
+          <Link to={`/item/${product.id}`}>Ver mas</Link>
         </CardButton>
       </CardInfoContainer>
     </CardContainer>

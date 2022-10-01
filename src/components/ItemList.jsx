@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import CardProduct from './CardProduct'
 import { Container } from './Containers'
 
-const ProductListContainer = ({ products }) => {
+const ItemList = ({ products }) => {
   return (
     <ProductContainer>
       {/* Quitar el classname una vez confeccionado */}
@@ -12,7 +12,7 @@ const ProductListContainer = ({ products }) => {
     </ProductContainer>
   )
 }
-export default ProductListContainer
+export default ItemList
 
 const ProductContainer = styled(Container)`
   gap: 1rem;

@@ -46,4 +46,4 @@ async function getById(id) {
   return querySnapshot.data()
 }
 
-export { getAll, getByCategory, getById }
+export const itemCollection = { getAll, getByCategory, getById }

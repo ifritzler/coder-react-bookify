@@ -7,7 +7,7 @@ const formatter = new Intl.NumberFormat('es-AR', {
   currency: 'ARS',
 })
 
-const Product = ({ product }) => {
+const ItemDetail = ({ product }) => {
   const { addItem } = useCartContext()
 
   function addProductToCart(product, quantity) {
@@ -46,7 +46,7 @@ const Product = ({ product }) => {
     </ProductContainer>
   )
 }
-export default Product
+export default ItemDetail
 
 const ProductContainer = styled.div`
   display: grid;
