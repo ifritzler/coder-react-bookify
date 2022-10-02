@@ -1,12 +1,12 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import CartWidget from './CartWidget'
 import { Container } from './Containers'
-import { useState } from 'react'
-import { useCartContext } from '../context/cartContext'
+import { Icon, Icons } from './Icons'
 
 const Navbar = () => {
   const [openState, setOpenState] = useState(false)
-  const { countItems } = useCartContext()
   return (
     <Header>
       <HeaderContainer>
@@ -14,25 +14,7 @@ const Navbar = () => {
           <Logo>Bookify</Logo>
         </Link>
         <Icons>
-          <Icon className='cart' quantity={countItems()}>
-            <span>{countItems() > 9 ? '9+' : countItems()}</span>
-            <Link to={'/carrito'}>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 24 24'
-                strokeWidth={1.5}
-                stroke='currentColor'
-                className='w-6 h-6'
-              >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  d='M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z'
-                />
-              </svg>
-            </Link>
-          </Icon>
+          <CartWidget />
           <Icon className={'menu'} onClick={() => setOpenState(!openState)}>
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -91,46 +73,6 @@ const Header = styled.header`
 `
 const Logo = styled.span`
   font-size: min(calc(1.3rem + 0.3vw), 2rem);
-`
-
-const Icons = styled.div`
-  display: flex;
-  order: 1;
-  gap: 1rem;
-  .cart {
-    position: relative;
-    span {
-      position: absolute;
-      top: 0px;
-      right: -4px;
-      width: 15px;
-      height: 15px;
-      font-size: 10px;
-      border-radius: 50%;
-      display: flex;
-      padding: 0.6rem;
-      justify-content: center;
-      align-items: center;
-      background-color: red;
-      color: white;
-    }
-  }
-  @media screen and (min-width: 768px) {
-    order: 2;
-  }
-`
-
-const Icon = styled.div`
-  width: 30px;
-  svg {
-    width: 100%;
-    aspect-ratio: 1/1;
-  }
-  @media screen and (min-width: 768px) {
-    &.menu {
-      display: none;
-    }
-  }
 `
 
 const Navigation = styled.nav`
