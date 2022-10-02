@@ -22,14 +22,27 @@ const CartProvider = ({ children }) => {
 
     if (!isInCart(product.id)) {
       copy.push({ ...product, quantity: parseInt(quantity) })
-      return setCart(copy)
+    } else {
+      copy.forEach((prod) => {
+        if (prod.id === product.id) {
+          prod.quantity += parseInt(quantity)
+        }
+      })
     }
+    return setCart(copy)
+  }
+
+  const updateItemQuantity = (id, quantity) => {
+    const copy = [...cart]
+
+    if (!isInCart(product.id)) return
 
     copy.forEach((prod) => {
-      if (prod.id === product.id) {
-        prod.quantity += parseInt(quantity)
+      if (prod.id === id) {
+        prod.quantity = parseInt(quantity)
       }
     })
+
     setCart(copy)
   }
 
@@ -43,7 +56,16 @@ const CartProvider = ({ children }) => {
 
   return (
     <cartContext.Provider
-      value={{ cart, addItem, removeItem, clear, isInCart, setCart, countItems }}
+      value={{
+        cart,
+        addItem,
+        removeItem,
+        clear,
+        isInCart,
+        setCart,
+        countItems,
+        updateItemQuantity,
+      }}
     >
       {children}
     </cartContext.Provider>

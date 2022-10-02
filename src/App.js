@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import ItemListContainer from './pages/ItemListContainer'
 import ItemDetailContainer from './pages/ItemDetailContainer'
+import Cart from './pages/Cart'
 function App() {
   return (
     <>
@@ -14,6 +15,7 @@ function App() {
           <Route path='/tienda' element={<ItemListContainer />} />
           <Route path='/tienda/:categoryId' element={<ItemListContainer />} />
           <Route path='/item/:id' element={<ItemDetailContainer />} />
+          <Route path='/carrito' element={<Cart />} />
         </Routes>
       </ContainerColumn>
     </>

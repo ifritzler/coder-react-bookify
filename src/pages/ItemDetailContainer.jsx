@@ -21,7 +21,7 @@ const ItemDetailContainer = () => {
           { path: '/tienda', text: 'ItemListContainer' },
         ]}
       />
-      <ItemDetail product={product} />
+      <ItemDetail product={{ id, ...product }} />
     </>
   )
 }
