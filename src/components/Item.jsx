@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { Container } from './Containers'
 
-const CardProduct = ({ product }) => {
+const Item = ({ product }) => {
   return (
     <CardContainer price={product?.price}>
       <CardImageContainer className={product?.bestSeller ? 'bestseller' : ''}>
@@ -22,7 +22,7 @@ const CardProduct = ({ product }) => {
   )
 }
 
-export default CardProduct
+export default Item
 
 const CardContainer = styled.div`
   border: 1px solid rgba(51, 51, 51, 0.1);

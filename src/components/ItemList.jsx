@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import CardProduct from './CardProduct'
+import Item from './Item'
 import { Container } from './Containers'
 
 const ItemList = ({ products }) => {
@@ -7,7 +7,7 @@ const ItemList = ({ products }) => {
     <ProductContainer>
       {/* Quitar el classname una vez confeccionado */}
       {products?.map((product) => (
-        <CardProduct key={product.id} product={product} />
+        <Item key={product.id} product={product} />
       ))}
     </ProductContainer>
   )
