@@ -35,10 +35,11 @@ const CartProvider = ({ children }) => {
   const updateItemQuantity = (id, quantity) => {
     const copy = [...cart]
 
-    if (!isInCart(product.id)) return
+    if (!isInCart(id)) return
 
     copy.forEach((prod) => {
       if (prod.id === id) {
+        if (quantity <= 0) return removeItem(id)
         prod.quantity = parseInt(quantity)
       }
     })
