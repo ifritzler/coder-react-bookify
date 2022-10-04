@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import CartItem from '../components/CartItem'
+import EmptyCart from '../components/EmptyCart'
 import { useCartContext } from '../context/cartContext'
 
 const Cart = () => {
@@ -17,25 +18,29 @@ const Cart = () => {
     removeItem(id)
   }
 
-  return (
-    <CartContainer>
-      <CartList id='cart-list'>
-        {cart.map((item) => {
-          return (
-            <>
-              <CartItem
-                item={item}
-                addItem={addItem}
-                decrementItem={decrementItem}
-                deleteItem={deleteItem}
-              />
-              <hr />
-            </>
-          )
-        })}
-      </CartList>
-    </CartContainer>
-  )
+  if (cart.length > 0) {
+    return (
+      <CartContainer>
+        <CartList id='cart-list'>
+          {cart.map((item) => {
+            return (
+              <>
+                <CartItem
+                  item={item}
+                  addItem={addItem}
+                  decrementItem={decrementItem}
+                  deleteItem={deleteItem}
+                />
+                <hr />
+              </>
+            )
+          })}
+        </CartList>
+      </CartContainer>
+    )
+  } else {
+    return <EmptyCart />
+  }
 }
 export default Cart
 

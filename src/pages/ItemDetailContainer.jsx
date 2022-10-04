@@ -18,7 +18,7 @@ const ItemDetailContainer = () => {
       <Breadcrumb
         links={[
           { path: '/', text: 'Home' },
-          { path: '/tienda', text: 'ItemListContainer' },
+          { path: '/tienda', text: 'Tienda' },
         ]}
       />
       <ItemDetail product={{ id, ...product }} />

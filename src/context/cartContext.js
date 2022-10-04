@@ -5,7 +5,7 @@ const cartContext = createContext({})
 cartContext.displayName = 'Contexto Carrito'
 
 const CartProvider = ({ children }) => {
-  const [cart, setCart] = useLocalStorage('cart', [])
+  const [cart, setCart] = useLocalStorage('bookify-cart', [])
 
   const isInCart = (id) => {
     return cart.find((prod) => prod.id === id) ? true : false
