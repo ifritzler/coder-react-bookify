@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { Container } from './Containers'
+import { formatter } from '../utils'
 
 const Item = ({ product }) => {
   return (
@@ -37,7 +38,7 @@ const CardContainer = styled.div`
   ::before {
     position: absolute;
     z-index: 9;
-    content: '$${(props) => props.price}';
+    content: '${(props) => formatter.format(props.price)}';
     display: grid;
     place-content: center;
     padding: 0.3rem;

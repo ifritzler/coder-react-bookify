@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Icon } from './Icons'
+import { formatter } from '../utils'
 
 const CartItem = ({ item, addItem, decrementItem, deleteItem }) => {
   return (
@@ -10,7 +11,7 @@ const CartItem = ({ item, addItem, decrementItem, deleteItem }) => {
           <h2 className='title'>{item.title}</h2>
           <div className='price'>
             <span>Cantidad: {item.quantity}</span>
-            <span>Subtotal: ${item.price * item.quantity}</span>
+            <span>Subtotal: {formatter.format(item.price * item.quantity)}</span>
           </div>
         </div>
       </div>
@@ -62,7 +63,7 @@ const CartItem = ({ item, addItem, decrementItem, deleteItem }) => {
 
 export default CartItem
 
-const CartItemContainer = styled.div`
+const CartItemContainer = styled.li`
   display: flex;
   align-items: center;
   flex: 1;

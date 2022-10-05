@@ -11,6 +11,13 @@ const CartProvider = ({ children }) => {
     return cart.find((prod) => prod.id === id) ? true : false
   }
 
+  const calculateTotals = () => {
+    const total = cart.reduce((prev, current) => {
+      return current.price * current.quantity + prev
+    }, 0)
+    return total
+  }
+
   const countItems = () => {
     return cart.reduce((prev, prod) => {
       return prev + parseInt(prod.quantity)
@@ -66,6 +73,7 @@ const CartProvider = ({ children }) => {
         setCart,
         countItems,
         updateItemQuantity,
+        calculateTotals,
       }}
     >
       {children}

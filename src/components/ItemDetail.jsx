@@ -1,11 +1,7 @@
 import styled from 'styled-components'
 import ItemCount from './ItemCount'
 import { useCartContext } from '../context/cartContext'
-
-const formatter = new Intl.NumberFormat('es-AR', {
-  style: 'currency',
-  currency: 'ARS',
-})
+import { formatter } from '../utils'
 
 const ItemDetail = ({ product }) => {
   const { addItem } = useCartContext()
