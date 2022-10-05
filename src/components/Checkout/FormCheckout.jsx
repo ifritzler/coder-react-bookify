@@ -1,20 +1,20 @@
-// const FormCheckout = () => {
-//   return <div>FormCheckout</div>
-// }
-// export default FormCheckout
-
-import React from 'react'
 import { Formik } from 'formik'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { useCartContext } from '../../context/cartContext'
+import orderService from '../../services/orders'
 
 const FormCheckout = ({ children }) => {
-  const { cart, calculateTotals } = useCartContext()
+  const { cart, calculateTotals, clear } = useCartContext()
+  const [orderId, setorderId] = useState('')
+  const navigate = useNavigate()
+
   return (
     <div>
       <h1>Checkout</h1>
       <Formik
-        initialValues={{ email: '', phone: '' }}
+        initialValues={{ email: '', phone: '', name: '' }}
         validate={(values) => {
           const errors = {}
           if (!values.name) {
@@ -32,28 +32,33 @@ const FormCheckout = ({ children }) => {
           }
           return errors
         }}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            // Modificar el alert con el flujo necesario de firebase
-            alert(
-              JSON.stringify(
-                {
-                  buyer: { ...values },
-                  items: cart.map((item) => ({
-                    id: item.id,
-                    title: item.title,
-                    price: item.price,
-                    quantity: item.quantity,
-                  })),
-                  date: new Date(),
-                  total: calculateTotals(),
-                },
-                null,
-                2
-              )
-            )
-            setSubmitting(false)
-          }, 400)
+        onSubmit={(values, { setSubmitting, resetForm }) => {
+          const newOrder = {
+            buyer: { ...values },
+            items: cart.map((item) => ({
+              id: item.id,
+              title: item.title,
+              price: item.price,
+              quantity: item.quantity,
+            })),
+            date: new Date(),
+            total: calculateTotals(),
+          }
+
+          orderService.insert(newOrder).then((response) => {
+            setTimeout(() => {
+              setorderId(null)
+              clear()
+              navigate('/tienda')
+            }, 10000)
+            setorderId(response)
+          })
+
+          setSubmitting(false)
+
+          // TODO: Incrementar el campo 'sold' de cada uno de los productos y reducir su stock
+
+          resetForm()
         }}
       >
         {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
@@ -88,6 +93,14 @@ const FormCheckout = ({ children }) => {
                 value={values.phone}
               />
               {errors.phone && touched.phone && errors.phone}
+              {orderId && (
+                <>
+                  <p>Gracias por su compra!</p>
+                  <p>
+                    Su id de compra es: <span className='order-id'>{orderId}</span>
+                  </p>
+                </>
+              )}
               <button type='submit' disabled={isSubmitting}>
                 {children}
               </button>
