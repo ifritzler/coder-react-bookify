@@ -26,7 +26,7 @@ const ItemCount = ({ product, addProductToCart }) => {
       </CountContainer>
       <ItemCountButton onClick={handleAdd}>Agregar al carrito</ItemCountButton>
       <ItemCountButton>
-        <Link to={'/carrito'}>Finalizar Compra</Link>
+        <Link to={'/cart'}>Finalizar Compra</Link>
       </ItemCountButton>
     </ItemCountContainer>
   )

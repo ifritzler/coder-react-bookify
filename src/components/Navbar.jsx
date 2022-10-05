@@ -39,16 +39,16 @@ const Navbar = () => {
               <Link to={'/tienda'}>Tienda</Link>
             </li>
             <li>
-              <Link to={'/tienda/fantasia'}>Fantasia</Link>
+              <Link to={'/categories/fantasia'}>Fantasia</Link>
             </li>
             <li>
-              <Link to={'/tienda/terror'}>Terror</Link>
+              <Link to={'/categories/terror'}>Terror</Link>
             </li>
             <li>
-              <Link to={'/tienda/novela'}>Novela</Link>
+              <Link to={'/categories/novela'}>Novela</Link>
             </li>
             <li>
-              <Link to={'/tienda/aventura'}>Aventura</Link>
+              <Link to={'/categories/aventura'}>Aventura</Link>
             </li>
           </NavigationLinks>
         </Navigation>

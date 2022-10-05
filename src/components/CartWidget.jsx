@@ -8,7 +8,7 @@ const CartWidget = () => {
   return (
     <Icon className='cart' quantity={countItems()}>
       <span>{countItems() > 9 ? '9+' : countItems()}</span>
-      <Link to={'/carrito'}>
+      <Link to={'/cart'}>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           fill='none'

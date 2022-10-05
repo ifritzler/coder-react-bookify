@@ -44,7 +44,6 @@ const CardContainer = styled.div`
     padding: 0.3rem;
     font-size: 14px;
     font-weight: bold;
-    top: 55%;
     right: 0px;
     background-color: #ffb311;
   }
@@ -80,7 +79,7 @@ const CardImageContainer = styled.div`
       padding: 0.3rem 0.7rem;
       font-size: 14px;
       font-weight: bold;
-      top: 20px;
+      top: 40px;
       left: 0px;
       min-width: 70px;
       background-color: #ffb311;
