@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# Bookify - Tienda virtual
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Desarrollo realizado enteramente con React
 
-## Available Scripts
+## Tecnologias utilizadas en el proyecto
 
-In the project directory, you can run:
+- ![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
+- ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+- ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+- ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+-     ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
+- ![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white)
 
-### `npm start`
+## Inicializacion de proyecto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Deberemos abrir nuestra consola bash o cmd y clonar el repositorio de forma local con el siguiente comando.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+git clone https://github.com/ifritzler/coder-react-bookify.git
+```
 
-### `npm test`
+## Instalacion de dependencias
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Una vez dentro de la carpeta de nuestro proyecto. Dentro de la consola de comandos digitamos el siguiente comando.
 
-### `npm run build`
+```
+// Para los que usen NPM
+npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+// Para los que usan PNPM
+pnpm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+// Para los que usan YARN
+yarn install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Inicializacion del proyecto
 
-### `npm run eject`
+Una vez instaladas las dependencias del mismo, se procede a ejecutar el siguiente comando depende de el manejador de paquetes que se este utilizando.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+npm run start
+pnpm start
+yarn start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Librerias utilizadas.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  [Link a su documentacion](https://styled-components.com/)
 
-## Learn More
+  Esta libreria fue utilizada como facilitador a la hora de colocar estilos a los componentes. De esta manera se evita la posible duplicidad de clases y se pueden aislar los componentes de estilos o de layout a componentes estilados y reutilizables
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- ## Formik
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  [Link a la documentacion](https://formik.org/)
 
-### Code Splitting
+  Esta libreria fue utilizada para el control de formularios. De esta manera es mas simple la gestion de los mismos.
+  Fue utilizada en el Checkout de la aplicación.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Consideraciones adicionales
 
-### Analyzing the Bundle Size
+Si bien el proyecto tiene unos requerimientos minimos el cual no indica la necesidad de un sistema de autenticación. La aplicacion tiene la posibilidad de hacer conexion con los servicios de [**auth0**](https://auth0.com/).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Esto es con el fin de poder realizar un **login de usuario** y **generar nuevas funcionalidades**.
 
-### Making a Progressive Web App
+El proyecto al dia de la entrega tiene como funcionalidad:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Navegacion responsive
+- Navegacion por categorias de producto
+- Filtrado por categoria
+- Lista de productos
+- LocalStorage integrado con el carrito
+- Vista del carrito y boton de checkout
+- Formulario de fin de compra
+- Identificador de compra al finalizar el flujo
