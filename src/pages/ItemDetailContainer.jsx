@@ -2,15 +2,21 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Breadcrumb from '../components/Breadcrumb'
 import ItemDetail from '../components/ItemDetail'
+import Spinner from '../components/Spinner'
+import { Container } from '../components/styled-components/Containers'
 import { itemCollection } from '../services/productos'
 
 const ItemDetailContainer = () => {
   const { id } = useParams()
   const [product, setProduct] = useState({})
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     // Esta funcion getById es la funcion que ejecuta logica de firebase
-    itemCollection.getById(id).then(setProduct)
+    itemCollection.getById(id).then((data) => {
+      setLoading(false)
+      setProduct(data)
+    })
   }, [id])
 
   return (
@@ -21,7 +27,13 @@ const ItemDetailContainer = () => {
           { path: '/tienda', text: 'Tienda' },
         ]}
       />
-      <ItemDetail product={{ id, ...product }} />
+      {loading ? (
+        <Container>
+          <Spinner />
+        </Container>
+      ) : (
+        <ItemDetail product={{ id, ...product }} />
+      )}
     </>
   )
 }

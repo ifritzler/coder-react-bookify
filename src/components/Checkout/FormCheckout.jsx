@@ -4,11 +4,13 @@ import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { useCartContext } from '../../context/cartContext'
 import orderService from '../../services/orders'
+import Spinner from '../Spinner'
 
 const FormCheckout = ({ children }) => {
   const { cart, calculateTotals, clear } = useCartContext()
   const [orderId, setorderId] = useState('')
   const navigate = useNavigate()
+  const [loading, setLoading] = useState(false)
 
   return (
     <div>
@@ -33,6 +35,7 @@ const FormCheckout = ({ children }) => {
           return errors
         }}
         onSubmit={(values, { setSubmitting, resetForm }) => {
+          setLoading(true)
           const newOrder = {
             buyer: { ...values },
             items: cart.map((item) => ({
@@ -51,6 +54,7 @@ const FormCheckout = ({ children }) => {
               clear()
               navigate('/tienda')
             }, 10000)
+            setLoading(false)
             setorderId(response)
           })
 
@@ -91,13 +95,17 @@ const FormCheckout = ({ children }) => {
                 value={values.phone}
               />
               {errors.phone && touched.phone && errors.phone}
-              {orderId && (
-                <>
-                  <p>Gracias por su compra!</p>
-                  <p>
-                    Su id de compra es: <span className='order-id'>{orderId}</span>
-                  </p>
-                </>
+              {loading ? (
+                <Spinner />
+              ) : (
+                orderId && (
+                  <>
+                    <p>Gracias por su compra!</p>
+                    <p>
+                      Su id de compra es: <span className='order-id'>{orderId}</span>
+                    </p>
+                  </>
+                )
               )}
               <button type='submit' disabled={isSubmitting}>
                 {children}
