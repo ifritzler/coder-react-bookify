@@ -10,8 +10,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     <Auth0Provider
-      domain='dev-jpudfqk2.us.auth0.com'
-      clientId='910Sf3IwxmWZX760YAF8m4PLGdn5Nbby'
+      domain={process.env.AUTH0_DOMAIN || process.env.REACT_APP_AUTH0_DOMAIN}
+      clientId={process.env.AUTH0_CLIENT_ID || process.env.REACT_APP_AUTH0_CLIENT_ID}
       redirectUri={window.location.origin}
     >
       <CartProvider>
