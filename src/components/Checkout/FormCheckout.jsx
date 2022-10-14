@@ -56,8 +56,6 @@ const FormCheckout = ({ children }) => {
 
           setSubmitting(false)
 
-          // TODO: Incrementar el campo 'sold' de cada uno de los productos y reducir su stock
-
           resetForm()
         }}
       >

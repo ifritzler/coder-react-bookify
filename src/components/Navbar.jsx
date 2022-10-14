@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import CartWidget from './CartWidget'
-import { Container } from './Containers'
-import { Icon, Icons } from './Icons'
+import { Container } from './styled-components/Containers'
+import { Icon, Icons } from './styled-components/Icons'
 
 const Navbar = () => {
   const [openState, setOpenState] = useState(false)

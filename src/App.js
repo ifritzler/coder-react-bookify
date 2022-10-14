@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import { ContainerColumn } from './components/Containers'
+import { ContainerColumn } from './components/styled-components/Containers'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import ItemListContainer from './pages/ItemListContainer'

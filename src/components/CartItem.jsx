@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Icon } from './Icons'
+import { Icon } from './styled-components/Icons'
 import { formatter } from '../utils'
 
 const CartItem = ({ item, addItem, decrementItem, deleteItem }) => {

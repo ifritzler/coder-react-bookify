@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { Container } from './Containers'
+import { Container } from './styled-components/Containers'
 import { formatter } from '../utils'
 
 const Item = ({ product }) => {

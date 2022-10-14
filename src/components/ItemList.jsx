@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Item from './Item'
-import { Container } from './Containers'
+import { Container } from './styled-components/Containers'
 
 const ItemList = ({ products }) => {
   return (

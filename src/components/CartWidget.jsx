@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../context/cartContext'
-import { Icon } from './Icons'
+import { Icon } from './styled-components/Icons'
 
 const CartWidget = () => {
   const { countItems } = useCartContext()

@@ -11,7 +11,6 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     // Esta funcion getById es la funcion que ejecuta logica de firebase
     itemCollection.getById(id).then(setProduct)
-    // TODO: En caso de no existir en firebase mostrar una vista notfound
   }, [id])
 
   return (
