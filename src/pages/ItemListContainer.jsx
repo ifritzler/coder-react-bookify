@@ -35,7 +35,8 @@ const ItemListContainer = () => {
           { path: '/tienda', text: 'Tienda' },
         ]}
       />
-
+      {!categoryId && <h1>Tienda</h1>}
+      {categoryId && <h1>{categoryId[0].toUpperCase() + categoryId.slice(1)}</h1>}
       {loading ? (
         <Container>
           <Spinner />
