@@ -1,11 +1,20 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import image1 from '../assets/pexels-photo-1.jpeg'
 import image2 from '../assets/pexels-photo-2.jpeg'
 import HomeCard from '../components/HomeCard'
+import { Container } from '../components/styled-components/Containers'
 
 const Home = () => {
   return (
     <>
+      <Container>
+        <CtaContainer>
+          <Link to={'/tienda'}>
+            <div className='cta'>Ir a la tienda</div>
+          </Link>
+        </CtaContainer>
+      </Container>
       <CardsContainer>
         <HomeCard
           title={'Historias unicas que te cautivaran'}
@@ -33,4 +42,14 @@ const CardsContainer = styled.section`
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 0.5rem;
+`
+const CtaContainer = styled.div`
+  margin-bottom: 2rem;
+  .cta {
+    margin-top: 1rem;
+    background-color: red;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+  }
 `

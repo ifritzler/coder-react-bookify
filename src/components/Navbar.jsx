@@ -35,9 +35,9 @@ const Navbar = () => {
         </Icons>
         <Navigation className={`${openState ? 'open' : ''}`}>
           <NavigationLinks>
-            <li>
+            {/* <li>
               <Link to={'/tienda'}>Tienda</Link>
-            </li>
+            </li> */}
             <li>
               <Link to={'/categories/fantasia'}>Fantasia</Link>
             </li>
