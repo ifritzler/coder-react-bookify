@@ -2,17 +2,21 @@ import styled from 'styled-components'
 import ItemCount from './ItemCount'
 import { useCartContext } from '../context/cartContext'
 import { formatter } from '../utils'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const ItemDetail = ({ product }) => {
   const { addItem } = useCartContext()
 
   function addProductToCart(product, quantity) {
-    alert('Producto añadido')
+    const notify = () => toast(`Producto ${product.title} añadido!`)
+    notify()
     addItem(product, quantity)
   }
 
   return (
     <ProductContainer>
+      <ToastContainer />
       <ProductImageContainer id='image-area'>
         <img
           src={`${window.location.origin}/${product?.images?.large}`}
